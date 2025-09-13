@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+// import PlanCards from "./pages/plans";
+// import MySubscriptions from "./pages/MySubscriptions";
+// import Dashboard from "./pages/user_dashboard";
+// import ManagePlan from "./pages/ManagePlan";
+// import Admindash from "./pages/Admindash";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Default route -> Login */}
+        <Route path="/" element={<Login />} />
+        
+        {/* Signup route */}
+        <Route path="/signup" element={<Signup />} />
+
+       {/* /* Admin-Dashboard route
+        <Route path="/admindashboard" element={<Dashboard />} />
+
+       
+        <Route path="/userdashboard" element={<Dashboard />} />
+
+
+        {/* Plans route */}
+        {/* <Route path="/plans" element={<PlanCards />} /> */}
+        {/* MySubscriptions route */}
+        {/* <Route path="/subscriptions" element={<MySubscriptions />} />  */}
+
+        {/* ManagePlan for admin route */}
+        {/* <Route path="/manage-plan" element={<ManagePlan />} /> */}
+        
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
